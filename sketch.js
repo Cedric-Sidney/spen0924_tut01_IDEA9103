@@ -88,10 +88,7 @@ function drawRoads() {
     push(); 
     stroke(linkColor);
     strokeWeight(4);  // Fixed wide width
-    strokeCap(ROUND); 
-    // strokeCap(ROUND) sets rounded line endings for smoother, organic-looking connectors.
-    // From the p5.js reference: https://p5js.org/reference/p5/strokeCap/
-    // Iterate over all stored connections
+
     for (let conn of connections) {
         line(conn.from.x, conn.from.y, conn.to.x, conn.to.y); 
     }
@@ -595,11 +592,6 @@ function setup() {
     //  Use min dimension to ensure square aspect ratio fits screen
     let size = min(windowWidth, windowHeight);
     createCanvas(size, size);
-    
-    //  pixelDensity() was not covered in class. 
-    //  It comes from the p5.js reference: https://p5js.org/reference/p5/pixelDensity/
-    //  It increases the device pixel ratio so the artwork renders more sharply on high-DPI/Retina screens.
-    pixelDensity(2); // For high-DPI/Retina screens
 
     // --- 1. Colour palette system (Aboriginal-inspired style) ---
     globalBgColor = color(30, 20, 15); // (Group) Deep, dark earth background
